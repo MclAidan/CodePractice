@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Viewer</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" href="zzerohstyle.css">
+<link rel="shortcut icon" href="logo.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="navbar">
+
+  <a href="index.html" >Home</a>
+  <a href="read.html" class="active" >Read</a>
+  <a href="subpage.html">Submit</a>
+<a href="literature.html">Literary</a>
+
+  <a href="about.html" class="right" 
+  padding-top = "0" padding-bottom = "0"
+  padding-right = "20" padding-left = "20">
+      <div >
+            <img src="logo.png" alt="logo" width ="16" height ="16" >
+      </div>
+</a>
+</div>
+
+
+
+
+ 
+ <div id="loader" class="center"></div>
+ <script> 
+        document.onreadystatechange = function() { 
+            if (document.readyState !== "complete") { 
+                document.querySelector( 
+                  "body").style.visibility = "hidden"; 
+                document.querySelector( 
+                  "#loader").style.visibility = "visible"; 
+            } else { 
+                document.querySelector( 
+                  "#loader").style.display = "none"; 
+                document.querySelector( 
+                  "body").style.visibility = "visible"; 
+            } 
+        }; 
+    </script> 
+    
+    
+    
+
+ 
+ 
+ 
+
+<div style=" padding: 4%; ">
+  <div id = "div1"></div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    var id = getParameterByName('id');
+    var catt = getParameterByName('catt');
+
+$.ajax({
+        url: 'dbview.php',
+        type: 'POST',
+        data : { data1 : id, data2 : catt},
+        dataType: 'JSON',
+        success: function(response){
+            
+                var titledb = response[0].title;
+                var submitdb = response[0].submit;
+                var authordb = response[0].author;
+                var abstractdb = response[0].abstract;
+                var fnamedb = "/documents/research/" + response[0].filename1;
+                
+var element = document.getElementById("div1");
+
+var title = document.createElement("div");
+var titletext = document.createTextNode(titledb);
+title.className = "viewtitle";
+
+var author = document.createElement("div");
+var authortext = document.createTextNode(authordb);
+author.className = "viewauthor";
+
+var abstract = document.createElement("div");
+var abstracttext = document.createTextNode(abstractdb);
+abstract.className = "viewabs";
+
+var pdf = document.createElement("div");
+pdf.style.display = "block";
+pdf.style.padding = "5%";
+
+var ifrm = document.createElement('iframe');
+ifrm.setAttribute('src', fnamedb);
+ifrm.setAttribute('width', '100%');
+ifrm.setAttribute('height', '700px');
+
+pdf.appendChild(ifrm);
+
+
+
+
+
+
+
+title.appendChild(titletext);
+author.appendChild(authortext);
+abstract.appendChild(abstracttext);
+
+element.appendChild(title);
+element.appendChild(author);
+element.appendChild(abstract);
+element.appendChild(pdf);
+
+
+        }
+    });
+
+</script>
+
+
+<div id="demo"></div>
+
+<div class="footer">
+
+  <a href="about.html" class="buttonb buttonbott" >ZZEROH</a>
+
+  <div class="foots">
+  <a href="contact.html" class="buttonb buttonbott" >Contact</a>
+  </div>
+
+   <div class="foots">
+  <a href="terms.html" class="buttonb buttonbott" >Terms</a>
+  </div>
+ <div class = "subtxtbod" style =" color:white; font-size: 12px; ;">
+      We use cookies to enhance your experience
+  </div>
+
+</div>
+
+</body>
+</html>

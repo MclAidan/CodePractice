@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Featured Authors</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" href="zzerohstyle.css">
+<link rel="shortcut icon" href="logo.ico" type="image/x-icon"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div class="navbar">
+
+  <a href="index.html" >Home</a>
+  <a href="read.html" class="active" >Read</a>
+  <a href="subpage.html">Submit</a>
+<a href="literature.html">Literary</a>
+
+  <a href="about.html" class="right" 
+  padding-top = "0" padding-bottom = "0"
+  padding-right = "20" padding-left = "20">
+      <div >
+            <img src="logo.png" alt="logo" width ="16" height ="16" >
+      </div>
+</a>
+</div>
+ 
+
+<div style=" padding: 5%; ">
+  <div id = "div1"></div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+var featured = '1';
+
+$.ajax({
+        url: 'dbre.php',
+        type: 'POST',
+        data : { data1 : featured },
+        dataType: 'JSON',
+        success: function(response){
+            var len = response.length;
+            for(var i=0; i<len; i++){
+                var id = response[i].id;
+                var titledb = response[i].title;
+                var submitdb = response[i].submit;
+                var authordb = response[i].author;
+                var abstractdb = response[i].abstract;
+                var fnamedb = "view.html?id=";
+                fnamedb = fnamedb +id+"&catt=0";
+                var element = document.getElementById("div1");
+                
+var card = document.createElement("div");
+var title = document.createElement("div");
+var titletext = document.createTextNode(titledb);
+
+var submitby = document.createElement("div");
+var subauth = document.createTextNode(submitdb);
+
+var author = document.createElement("div");
+var authortxt = document.createTextNode(authordb);
+
+var abstract = document.createElement("div");
+var abstracttxt = document.createTextNode(abstractdb);
+
+var viewbtn = document.createElement("BUTTON");
+viewbtn.idv = fnamedb;
+viewbtn.innerHTML = "View";
+viewbtn.className = "button buttonsub";
+viewbtn.addEventListener("click", function(e) {
+   window.location.href = this.idv;
+    
+});
+title.className = "cardtitle";
+submitby.className = "cardsub";
+author.className = "cardauthor";
+abstract.className = "cardabstract";
+card.className = "card";
+element.className ="cardcont";
+
+title.appendChild(titletext);
+card.appendChild(title);
+
+submitby.appendChild(subauth);
+card.appendChild(submitby);
+
+author.appendChild(authortxt);
+card.appendChild(author);
+
+abstract.appendChild(abstracttxt);
+card.appendChild(abstract);
+
+card.appendChild(viewbtn);
+
+element.appendChild(card);
+                
+
+            
+            }
+
+        }
+    });
+
+
+</script>
+
+
+<div id="demo"></div>
+
+<div class="footer">
+
+  <a href="about.html" class="buttonb buttonbott" >ZZEROH</a>
+
+  <div class="foots">
+  <a href="contact.html" class="buttonb buttonbott" >Contact</a>
+  </div>
+
+   <div class="foots">
+  <a href="terms.html" class="buttonb buttonbott" >Terms</a>
+  </div>
+ <div class = "subtxtbod" style =" color:white; font-size: 12px; ;">
+      We use cookies to enhance your experience
+  </div>
+
+</div>
+
+</body>
+</html>

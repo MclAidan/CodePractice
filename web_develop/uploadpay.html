@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<title>Upload</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" href="zzerohstyle.css">
+<link rel="shortcut icon" href="logo.ico" type="image/x-icon"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div class="navbar">
+
+  <a href="index.html" >Home</a>
+  <a href="construction.html">Read</a>
+  <a href="subpage.html" class = "active">Submit</a>
+<a href="literature.html">Literary</a>
+
+  <a href="about.html" class="right" 
+  padding-top = "0" padding-bottom = "0"
+  padding-right = "20" padding-left = "20">
+      <div >
+            <img src="logo.png" alt="logo" width ="16" height ="16" >
+      </div>
+</a>
+</div>
+
+<div class = "subtxt">
+  Upload Information
+  <div class = "subtxtbod">
+  Uploading may take a few days to process, if your work has not been processed and posted please contact us through the contact page. You should expect to receive a conformation email within a few minutes of submitting if you do not receive this please contact us. All uploads are subject to our terms. Thank you for your submission.
+
+  </div>
+</div>
+
+
+<div style=" padding: 5%; ">
+
+  <div class = "para" style="margin-top: 0px;">   
+  <p> Submission Form </p>
+ </div>
+
+<form method="post" enctype="multipart/form-data" action="upload.php">
+
+
+<input type="text" id="fname" name="fname" placeholder="First Name" required><br>
+
+<input type="text" id="lname" name="lname" placeholder="Last Name" required><br>
+  
+<input type="email" id="email" name="email" placeholder="Email Address" required><br>
+
+<input type="text" id="inst" name="inst" placeholder="Associated Institution"><br>
+
+
+
+
+ <div class = "para">   
+  <p> Article Informtion </p>
+ </div>
+
+
+
+<input type="text" id="title" name="title" placeholder="Article Title" required><br>
+<input type="text" id="author" name="author" placeholder="Article Authors" required><br>
+
+
+<select name="field" id="field" required>
+  <option selected="">Select Field</option>
+  <option value="chem">Chemistry</option>
+  <option value="engineering">Engineering</option>
+  <option value="hums">Humanities</option>
+  <option value="math">Mathematics</option>
+  <option value="medicine">Medicine</option>
+  <option value="nscience">Natural Sciences</option>
+  <option value="phys">Physics</option>
+  <option value="other">Other</option>
+
+</select><br>
+
+<input type="text" id="subfield" name="subfield" placeholder="Sub-Field"><br>
+
+
+<div class="para" style=" font-size: 19px;">
+  <p>Is the article META - Analysis? </p>
+  <input type="radio" id="METAY" style="display:inline-block;"  name="META" value="METAY" required>
+  <label for="METAY" style="display:inline-block;" >Yes</label>
+  <input type="radio" id="METAN" style="display:inline-block;"  name="META" value="METAN" required>
+  <label for="METAN" style="display:inline-block; ">No</label><br>
+</div>
+
+<textarea id="abstract" name="abstract" placeholder="Article Abstract" rows="6" cols="50" required></textarea>
+<br><br>
+
+ <div class = "para">   
+  <p> File Upload </p>
+ </div>
+
+<input name="uploaded_file" type="file" accept="application/pdf" required>
+
+<div class="para" style=" font-size: 19px;">
+  <p>Do you agree to our Terms, Conditions and Submission Policy?</p>
+ 
+  <input type="radio" id="agree" style="display:inline-block; " name="agree" value="agree" required>
+  <label for="agree" style="display:inline-block; ">Yes</label>
+ 
+</div>
+
+
+
+
+<div id="paypal-button-container" class = "center1"></div>
+
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AcZDru6fRrEucLV7Tl1XuO5Q30xn9np4rpWs3ZDhVgCWclaKr1ElT18B0cOZtB4KhJExkZf4pW4GgAg4
+    ">
+  </script>
+
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          size: 'small',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+
+          
+      },
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: '20'
+                  }
+              }]
+          });
+      },
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              alert('Transaction completed by ' + details.payer.name.given_name + '!  Please press submit article. ');
+              var element = document.getElementById("div1");
+              var button = document.createElement("INPUT");
+              button.setAttribute("type", "submit");
+              button.setAttribute("value", "Submit Article");
+              element.appendChild(button);
+
+
+          });
+      }
+  }).render('#paypal-button-container');
+</script>
+
+
+<div id = "div1">
+</div>
+
+
+</form> 
+
+</div>
+<div class="footer">
+
+  <a href="about.html" class="buttonb buttonbott" >ZZEROH</a>
+
+  <div class="foots">
+  <a href="contact.html" class="buttonb buttonbott" >Contact</a>
+  </div>
+
+  <div class="foots">
+  <a href="terms.html" class="buttonb buttonbott" >Terms</a>
+  </div>
+   <div class = "subtxtbod" style =" color:white; font-size: 12px; ;">
+      We use cookies to enhance your experience
+  </div>
+
+
+</div>
+
+</body>
+</html>

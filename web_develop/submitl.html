@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<title>Home</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" href="litstyle.css">
+<link rel="shortcut icon" href="logo.ico" type="image/x-icon"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div class="navbar">
+
+  <a href="literature.html" >Home</a>
+  <a href="readl.html">Read </a>
+  <a href="submitl.html" class="active" >Submit</a>
+    <a href="index.html">Research</a>
+
+  <a href="about.html" class="right" 
+  padding-top = "0" padding-bottom = "0"
+  padding-right = "20" padding-left = "20">
+      <div >
+            <img src="logo.png" alt="logo" width ="16" height ="16" >
+      </div>
+</a>
+</div>
+
+<div class = "subtxt">
+  Upload Information
+  <div class = "subtxtbod">
+  Uploading may take a few days to process, if your work has not been processed and posted please contact us through the contact page. You should expect to receive a conformation email within a few minutes of submitting if you do not receive this please contact us. All uploads are subject to our terms. Thank you for your submission.
+
+  </div>
+</div>
+
+
+<div style=" padding: 5%; ">
+
+  <div class = "para" style="margin-top: 0px;">   
+  <p> Submission Form </p>
+ </div>
+
+<form method="post" enctype="multipart/form-data" action="uploadl.php">
+
+
+<input type="text" id="fname" name="fname" placeholder="First Name" required><br>
+
+<input type="text" id="lname" name="lname" placeholder="Last Name" required><br>
+  
+<input type="email" id="email" name="email" placeholder="Email Address" required><br>
+
+
+ <div class = "para">   
+  <p> Composition Informtion </p>
+ </div>
+
+
+
+<input type="text" id="title" name="title" placeholder="Title" required><br>
+<input type="text" id="author" name="author" placeholder="Author" required><br>
+
+
+<select name="field" id="field" required>
+  <option selected="">Select Genre</option>
+  <option value="fiction">Fiction</option>
+  <option value="Non-Fiction">Non-Fiction</option>
+  <option value="Poetry">Poetry</option>
+  <option value="Dialogue">Dialogue</option>
+  <option value="Fantasy">Fantasy</option>
+  <option value="Romance">Romance</option>
+  <option value="Science Fiction">Science Fiction</option>
+  <option value="Horror">Horror</option>
+
+  <option value="Other">Other</option>
+
+</select><br>
+
+
+
+
+
+<textarea id="abstract" name="abstract" placeholder="Synopsis, Tell us about your piece. " rows="6" cols="50" required></textarea>
+<br><br>
+
+ <div class = "para">   
+  <p> File Upload (PDF Only) </p>
+ </div>
+
+<input name="uploaded_file" type="file" accept="application/pdf" required>
+
+<div class="para" style=" font-size: 19px;">
+  <p>Do you agree to our Terms, Conditions and Submission Policy?</p>
+ 
+  <input type="radio" id="agree" style="display:inline-block; " name="agree" value="agree" required>
+  <label for="agree" style="display:inline-block; ">Yes</label>
+ 
+</div>
+
+
+
+<input type="submit" value="Submit">
+
+
+
+
+</form> 
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="footer">
+
+  <a href="about.html" class="buttonb buttonbott" >ZZEROH</a>
+
+  <div class="foots">
+  <a href="contactl.html" class="buttonb buttonbott">Contact</a>
+  </div>
+
+   <div class="foots">
+  <a href="termsl.html" class="buttonb buttonbott" >Terms</a>
+  </div>
+  
+   <div class = "subtxtbod" style =" color:white; font-size: 12px; ;">
+      We use cookies to enhance your experience
+  </div>
+
+
+</div>
+
+
+</body>
+</html>

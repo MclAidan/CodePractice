@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Read</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" href="litstyle.css">
+<link rel="shortcut icon" href="logo.ico" type="image/x-icon"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div class="navbar">
+
+  <a href="literature.html" >Home</a>
+  <a href="readl.html" class="active" >Read </a>
+  <a href="submitl.html">Submit</a>
+    <a href="index.html">Research</a>
+
+  <a href="about.html" class="right" 
+  padding-top = "0" padding-bottom = "0"
+  padding-right = "20" padding-left = "20">
+      <div >
+            <img src="logo.png" alt="logo" width ="16" height ="16" >
+      </div>
+</a>
+</div>
+ 
+
+
+
+
+ 
+ <div id="loader" class="center"></div>
+ <script> 
+        document.onreadystatechange = function() { 
+            if (document.readyState !== "complete") { 
+                document.querySelector( 
+                  "body").style.visibility = "hidden"; 
+                document.querySelector( 
+                  "#loader").style.visibility = "visible"; 
+            } else { 
+                document.querySelector( 
+                  "#loader").style.display = "none"; 
+                document.querySelector( 
+                  "body").style.visibility = "visible"; 
+            } 
+        }; 
+    </script> 
+    
+    
+    
+    
+ 
+ 
+ 
+
+<div style=" padding: 5%; ">
+  <div id = "div1"></div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+
+$.ajax({
+        url: 'dblit.php',
+        type: 'POST',
+        dataType: 'JSON',
+        success: function(response){
+            var len = response.length;
+            for(var i=0; i<len; i++){
+                var id = response[i].id;
+                var titledb = response[i].title;
+                var gendb = response[i].genre;
+                var authordb = response[i].author;
+                var syndb = response[i].synopsis;
+                var fnamedb = "viewlit.html?id=";
+                fnamedb = fnamedb +id+"&catt=1";
+                
+                var element = document.getElementById("div1");
+
+var card = document.createElement("div");
+var title = document.createElement("div");
+var titletext = document.createTextNode(titledb); 
+
+var submitby = document.createElement("div");
+var subauth = document.createTextNode(gendb);
+
+var author = document.createElement("div");
+var authortxt = document.createTextNode(authordb);
+
+var abstract = document.createElement("div");
+var abstracttxt = document.createTextNode(syndb);
+
+var viewbtn = document.createElement("BUTTON");
+viewbtn.idv = fnamedb;
+viewbtn.innerHTML = "View";
+viewbtn.className = "button buttonsub";
+viewbtn.addEventListener("click", function(e) {
+   window.location.href = this.idv;
+    
+});
+title.className = "cardtitle";
+submitby.className = "cardsub";
+author.className = "cardauthor";
+abstract.className = "cardabstract";
+card.className = "card";
+element.className ="cardcont";
+
+title.appendChild(titletext);
+card.appendChild(title);
+
+submitby.appendChild(subauth);
+card.appendChild(submitby);
+
+author.appendChild(authortxt);
+card.appendChild(author);
+
+abstract.appendChild(abstracttxt);
+card.appendChild(abstract);
+
+card.appendChild(viewbtn);
+
+element.appendChild(card);
+                
+
+            
+            }
+
+        }
+    });
+
+
+
+</script>
+
+
+<div id="demo"></div>
+
+<div class="footer">
+
+  <a href="about.html" class="buttonb buttonbott" >ZZEROH</a>
+
+  <div class="foots">
+  <a href="contactl.html" class="buttonb buttonbott" >Contact</a>
+  </div>
+
+   <div class="foots">
+  <a href="termsl.html" class="buttonb buttonbott" >Terms</a>
+  </div>
+ <div class = "subtxtbod" style =" color:white; font-size: 12px; ;">
+      We use cookies to enhance your experience
+  </div>
+
+</div>
+
+</body>
+</html>
