@@ -30,3 +30,7 @@ a = np.array([1,2,3])
 x = np.array([1,2,3,4,5,6,7,8,9])
 y = filt(x,b,a)
 print(y)
+#Output yields :
+#"[ 4.  9. 11.  9. 14. 29. 32.  6.  3.]"
+#Which isn't quite right, where did i go wrong
+
